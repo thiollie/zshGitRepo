@@ -1,0 +1,9 @@
+#!/bin/zsh
+#
+function =
+{
+	result="$(echo "$@" | root -l )"
+	echo "$(echo "$result" | awk -F ")" '{print $2}')"
+#echo $result
+}
+alias calcul="="

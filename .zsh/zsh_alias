@@ -1,0 +1,27 @@
+#!/bin/zsh
+
+alias source_zshrc="source $HOME/.zshrc"
+alias source_alias="source $HOME/.zsh_config/zsh_alias"
+alias source_config="source $HOME/.zsh_config/zsh_config"
+
+alias cdh='cd ${MYWORK}'
+
+alias cleanTex='rm -f *aux *.bbl *.blg *.log *.out *.spl *.toc'
+
+alias msl2="sudo sshfs -o allow_other,defer_permissions,noappledouble,volname=SL2 thiollie@nansl2.in2p3.fr:/scratch/neutrino/thiollie /sshfs/sl2"
+alias usl2="sudo umount /sshfs/sl2"
+alias cdsl2='cd /sshfs/sl2'
+
+alias mcca="sudo sshfs -o allow_other,defer_permissions,noappledouble,volname=CCA thiollie@cca.in2p3.fr:/sps/hep/siren /sshfs/cca"
+alias ucca="sudo umount /sshfs/cca"
+alias cdcca='cd /sshfs/cca'
+
+alias QSUB="${MYPROG}/BIN/QSUB.sh"
+
+alias ssh_fbi="ssh -Y -l nthiol06 -p2200 fbi.emn.fr"
+alias sftp_fbi="sftp -oPort=2200 -oUser=nthiol06 fbi.emn.fr"
+
+alias ls="ls -G"
+alias dir="ls -alsh"
+alias bz="ssh revenu@apcpaoa.in2p3.fr"
+alias edit='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'

@@ -1,0 +1,210 @@
+#!/bin/zsh
+
+###########################################################################
+# PERSO
+#
+export MYHOME=/Users/thiollie
+export MYWORK=${MYHOME}/WORK
+export MYPROG=${MYWORK}/CODES
+
+unsetopt correct_all
+
+############################################################################
+# Macport + Cmake + ALL
+#
+export PATH="."
+export LD_LIBRARY_PATH="."
+export PATH="${PATH}:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/lib:/usr/local/lib"
+
+export PATH="${PATH}:/Applications/CMake.app/Contents/bin"
+###########################################################################
+
+################################################################
+# C and C++ Compiler
+#
+# export CC="/opt/local/bin/gcc"
+# export CXX="/opt/local/bin/g++"
+#######################################################
+
+################################################################
+# BIN
+#
+export PATH="${PATH}:${MYPROG}/BIN"
+#######################################################
+
+########################################################
+# PYTHON
+#
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# CONDA
+
+# To activate this environment, use:
+# > conda activate py
+#
+# To deactivate an active environment, use:
+# > conda deactivate
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/thiollie/.pyenv/versions/anaconda3-2019.03/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/thiollie/.pyenv/versions/anaconda3-2019.03/etc/profile.d/conda.sh" ]; then
+        . "/Users/thiollie/.pyenv/versions/anaconda3-2019.03/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/thiollie/.pyenv/versions/anaconda3-2019.03/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+########################################################
+
+########################################################
+# ROOT 
+#
+
+export ROOT_Path="/usr/local/Cellar/root"
+export ROOT_Version="6.18.00"
+
+export PATH="${PATH}:${ROOT_Path}/${ROOT_Version}/bin"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${ROOT_Path}/${ROOT_Version}/lib"
+
+########################################################
+
+########################################################
+# LaTeX BIN
+#
+export PATH="${PATH}:/Library/TeX/texbin"
+#######################################################
+
+########################################################
+# MCNP & MCNPX
+#
+export PATH="${PATH}:${MYPROG}/MCNP/MCNP_CODE/bin"
+export DATAPATH="${MYPROG}/MCNP/MCNP_DATA"
+########################################################
+
+# Litm2
+export PATH="${PATH}:${MYPROG}/MCNPRead/bin"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${MYPROG}/MCNPRead/lib"
+
+# Increase the stacksize 
+# limit stacksize unlimited
+#######################################################
+
+########################################################
+# SERPENT
+#
+export PATH="${PATH}:${MYPROG}/SERPENT/2.1.29"
+export SERPENT_DATA="${MYPROG}/SERPENT/xs"
+# default lib
+export SERPENT_ACELIB="/Users/thiollie/WORK/CODES/SERPENT/xs/endfb7/sss_endfb7u.xsdata"
+#######################################################
+
+########################################################
+# DRAGON
+#
+export PATH="${PATH}:${MYPROG}/DRAGON/DRAGON306Ld/Sources"
+#######################################################
+
+########################################################
+# ACDC
+#
+export ACDCPATH="${MYPROG}/ACDC"
+export PATH="${PATH}:${ACDCPATH}"
+#######################################################
+
+########################################################
+# CLASS
+
+export CLASS_VERSION="CLASS_Dev"
+# setenv CLASS_VERSION CLASS_V5_Merge_01_2016
+# setenv CLASS_VERSION V4.1
+
+#
+# nothing to change under this line
+#
+export CLASS_PATH="$MYPROG/CLASS/$CLASS_VERSION"
+export PATH="${PATH}:$CLASS_PATH/bin"
+export PATH="${PATH}:$CLASS_PATH/gui/bin"
+
+export CLASS_include="$CLASS_PATH/source/include"
+export CLASS_external="$CLASS_PATH/source/external"
+export CLASS_Equivalence="$CLASS_PATH/source/Model/Equivalence"
+export CLASS_Irradiation="$CLASS_PATH/source/Model/Irradiation"
+export CLASS_XS="$CLASS_PATH/source/Model/XS"
+
+export CLASS_lib="$CLASS_PATH/lib"
+
+export CLASS_CFLAG="-I$CLASS_include -I$CLASS_external -I$CLASS_Equivalence -I$CLASS_Irradiation -I$CLASS_XS -L$CLASS_lib -lCLASSpkg `root-config --cflags` `root-config --libs`"
+
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${CLASS_lib}"
+export DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH}:${CLASS_lib}"
+#######################################################
+
+########################################################
+# FALCONE
+export FALCONE_VERSION="FALCONE"
+#
+# nothing to change under this line
+#
+export FALCONE_PATH="$MYPROG/${FALCONE_VERSION}"
+
+export FALCONE_include="$FALCONE_PATH/source/include"
+export FALCONE_lib="$FALCONE_PATH/lib"
+
+export FALCONE_CFLAG="-I$FALCONE_include -L$FALCONE_lib -lFALCONE `root-config --cflags` `root-config --libs`"
+
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${FALCONE_lib}"
+export DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH}:${FALCONE_lib}"
+#######################################################
+
+########################################################
+# CYCLUS
+#
+export DYLD_FALLBACK_LIBRARY_PATH="/opt/local/lib:/opt/local"
+export CMAKE_MODULE_PATH="/opt/local/include"
+export CMAKE_PREFIX_PATH="/opt/local"
+
+export HDF5_DIR="/opt/local/lib"
+export HDF5_ROOT="/opt/local/share"
+
+export PATH="${PATH}:${HDF5_DIR}:/opt/local/bin:${HOME}/.local/bin"
+
+export PATH="${PATH}:$HOME/.local/bin"
+########################################################
+
+########################################################
+# MURE package libraries
+#
+# to change if new MURE version
+#
+export MURE_PATH="${MYPROG}/SMURE/SMURE_Dev"
+#
+# nothing to change under this line
+#
+export  LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$MURE_PATH/lib"
+export  DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH}:$MURE_PATH/lib"
+
+export  DATADIR="$MURE_PATH/data"
+
+export MURE_include="$MURE_PATH/source/include"
+export MURE_ExternalPkg="$MURE_PATH/source/external"
+export MURE_lib="$MURE_PATH/lib"
+
+export PATH="${PATH}:$MURE_PATH/gui"
+export PATH="${PATH}:$MURE_PATH/source/external/litm2"
+########################################################
+
+########################################################
+# GOOGLE Test
+#
+export GTEST_DIR="${MYPROG}/googletest/googletest"
+########################################################
+
